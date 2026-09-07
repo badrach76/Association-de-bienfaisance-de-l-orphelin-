@@ -2,18 +2,19 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>أنشطة الجمعية - الجمعية الخيرية لرعاية اليتيم</title>
     <link rel="stylesheet" href="style.css">
     <style>
         .activities-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
         }
         .activity-card {
             background: var(--white);
             border-radius: var(--radius);
-            padding: 30px;
+            padding: 25px;
             box-shadow: var(--shadow);
             border-top: 5px solid var(--primary);
             transition: var(--transition);
@@ -23,8 +24,8 @@
         }
         .activity-card h3 {
             color: var(--primary);
-            margin-bottom: 15px;
-            font-size: 1.3rem;
+            margin-bottom: 12px;
+            font-size: 1.25rem;
         }
     </style>
 </head>
@@ -39,7 +40,14 @@
                     <span>العطاوية - تأسست 2012</span>
                 </div>
             </div>
-            <nav>
+            
+            <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav id="navMenu">
                 <ul>
                     <li><a href="index.html">الرئيسية</a></li>
                     <li><a href="about.html">من نحن</a></li>
@@ -62,7 +70,7 @@
         <div class="activities-grid">
             <div class="activity-card">
                 <h3>🛒 القفة الشهرية</h3>
-                <p>توزيع مواد غذائية أساسية بشكل دوري ومنتظم على الأسر المحتاجة والأرامل لتوفير الأمن الغذائي وخفيف الأعباء المعيشية.</p>
+                <p>توزيع مواد غذائية أساسية بشكل دوري ومنتظم على الأسر المحتاجة والأرامل لتوفير الأمن الغذائي وتخفيف الأعباء المعيشية.</p>
             </div>
             <div class="activity-card">
                 <h3>🌙 قفة رمضان</h3>
@@ -73,10 +81,10 @@
                 <p>إدخال الفرحة والسرور لقلوب الأيتام عبر اقتناء ملابس جديدة ومتكاملة بمناسبة عيدي الفطر والأضحى المبارك.</p>
             </div>
             <div class="activity-card">
-                ### 🐑 أضحية العيد
+                <h3>🐑 أضحية العيد</h3>
                 <p>تمكين الأسر اليتيمة المعوزة من أداء شعيرة عيد الأضحى في أجواء عائلية دافئة ومميزة تعزز روح التضامن المجتمعي.</p>
             </div>
-            <div class="activity-card" style="grid-column: 1 / -1; max-width: 600px; margin: 0 auto;">
+            <div class="activity-card" style="grid-column: 1 / -1; max-width: 100%;">
                 <h3>📚 الدخول المدرسي</h3>
                 <p>توفير المحافظ والدفاتر والأدوات المدرسية عالية الجودة لدعم تمدرس الأبناء والأيتام ومحاربة ظاهرة الهدر المدرسي.</p>
             </div>
@@ -87,5 +95,13 @@
         <p>جميع الحقوق محفوظة © الجمعية الخيرية لرعاية اليتيم بالعطاوية 2026</p>
     </footer>
 
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        menuToggle.addEventListener('click', () => { navMenu.classList.toggle('active'); });
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => { navMenu.classList.remove('active'); });
+        });
+    </script>
 </body>
 </html>
