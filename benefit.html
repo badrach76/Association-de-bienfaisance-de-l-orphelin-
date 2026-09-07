@@ -2,52 +2,89 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>طلب الاستفادة</title>
+    <title>طلب الاستفادة - الجمعية الخيرية لرعاية اليتيم</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>...</header>
 
-    <div class="container">
-        <h1>طلب الاستفادة (الأيتام والأرامل)</h1>
-        <p>المرجو ملء الاستمارة أدناه بالمعلومات الصحيحة ليتم دراسة الطلب من طرف إدارة الجمعية:</p>
-        
-        <form action="#" method="POST" style="margin-top: 20px;">
-            <div class="form-group">
-                <label>اسم الأرملة / المسؤول:</label>
-                <input type="text" required placeholder="الاسم الكامل">
+    <header>
+        <div class="nav-container">
+            <div class="logo-area">
+                <div class="logo-icon">🤲</div>
+                <div class="logo-text">
+                    <h2>جمعية رعاية اليتيم</h2>
+                    <span>العطاوية - تأسست 2012</span>
+                </div>
             </div>
-            <div class="form-group">
-                <label>رقم البطاقة الوطنية (CIN):</label>
-                <input type="text" required>
-            </div>
-            <div class="form-group">
-                <label>رقم الهاتف للتواصل:</label>
-                <input type="tel" required placeholder="06xxxxxxxx">
-            </div>
-            <div class="form-group">
-                <label>العنوان السكني الكامل:</label>
-                <textarea rows="2" required></textarea>
-            </div>
-            <div class="form-group">
-                <label>عدد الأيتام في القاصرين:</label>
-                <input type="number" min="1" required>
-            </div>
-            <div class="form-group">
-                <label>نوع الدعم المطلوب:</label>
-                <select>
-                    <option>القفة الشهرية</option>
-                    <option>قفة رمضان</option>
-                    <option>كسوة العيد</option>
-                    <option>أضحية العيد</option>
-                    <option>الدعم المدرسي</option>
-                    <option>كفالة شاملة</option>
-                </select>
-            </div>
-            <button type="submit" class="btn">إرسال الطلب</button>
-        </form>
+            <nav>
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="activities.html">الأنشطة</a></li>
+                    <li><a href="benefit.html" class="active">طلب الاستفادة</a></li>
+                    <li><a href="sponsorship.html" class="nav-cta">كفالة مباشرة</a></li>
+                    <li><a href="volunteer.html">التطوع</a></li>
+                    <li><a href="contact.html">تواصل معنا</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h1>طلب الاستفادة للأيتام والأرامل</h1>
+        <p>المرجو ملء استمارة البحث الاجتماعي بدقة لكي تتمكن لجنة البحث من معالجة طلبكم</p>
     </div>
 
-    <footer>...</footer>
+    <div class="wrapper">
+        <div class="card-box">
+            <form action="#" method="POST">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>اسم الأرملة / المسؤول:</label>
+                        <input type="text" required placeholder="الاسم الكامل">
+                    </div>
+                    <div class="form-group">
+                        <label>رقم البطاقة الوطنية (CIN):</label>
+                        <input type="text" required placeholder="مثال: AB123456">
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>رقم الهاتف النقال:</label>
+                        <input type="tel" required placeholder="06xxxxxxxx">
+                    </div>
+                    <div class="form-group">
+                        <label>عدد الأيتام القاصرين:</label>
+                        <input type="number" min="1" required placeholder="عدد الأطفال">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>نوع الدعم أو البرنامج المطلوب:</label>
+                    <select>
+                        <option>القفة الشهرية الغذائية</option>
+                        <option>قفة شهر رمضان</option>
+                        <option>كسوة العيد</option>
+                        <option>أضحية العيد</option>
+                        <option>الدعم المدرسي والمحافظ</option>
+                        <option>كفالة شاملة</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>العنوان السكني المفصل (الحي / الشارع):</label>
+                    <textarea rows="3" required placeholder="اكتب العنوان بوضوح داخل العطاوية أو النواحي"></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 10px;">إرسال طلب الاستفادة للمراجعة</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>جميع الحقوق محفوظة © الجمعية الخيرية لرعاية اليتيم بالعطاوية 2026</p>
+    </footer>
+
 </body>
 </html>
