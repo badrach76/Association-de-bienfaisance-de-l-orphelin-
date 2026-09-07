@@ -2,6 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>من نحن - الجمعية الخيرية لرعاية اليتيم</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -16,7 +17,14 @@
                     <span>العطاوية - تأسست 2012</span>
                 </div>
             </div>
-            <nav>
+            
+            <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav id="navMenu">
                 <ul>
                     <li><a href="index.html">الرئيسية</a></li>
                     <li><a href="about.html" class="active">من نحن</a></li>
@@ -44,7 +52,7 @@
             <h3 style="color: var(--primary); margin: 30px 0 15px 0;">رسالتنا وأهدافنا:</h3>
             <ul style="list-style-type: disc; padding-right: 20px; color: var(--text-dark); display: flex; flex-direction: column; gap: 10px;">
                 <li>رعاية الأيتام وتوفير الدعم المادي والنفسي والتربوي لهم.</li>
-                <li>الاحاطة بالأرامل ومساعدتهن على مواجهة أعباء الحياة اليومية والمواسم الكبرى.</li>
+                <li>الإحاطة بالأرامل ومساعدتهن على مواجهة أعباء الحياة اليومية والمواسم الكبرى.</li>
                 <li>ترسيخ قيم التضامن والتآزر الاجتماعي داخل مدينة العطاوية والنواحي.</li>
             </ul>
         </div>
@@ -54,5 +62,13 @@
         <p>جميع الحقوق محفوظة © الجمعية الخيرية لرعاية اليتيم بالعطاوية 2026</p>
     </footer>
 
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        menuToggle.addEventListener('click', () => { navMenu.classList.toggle('active'); });
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => { navMenu.classList.remove('active'); });
+        });
+    </script>
 </body>
 </html>
