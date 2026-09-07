@@ -2,44 +2,90 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>أنشطة الجمعية</title>
+    <title>أنشطة الجمعية - الجمعية الخيرية لرعاية اليتيم</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px; }
-        .card { background: #fff; border: 1px solid #ddd; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+        .activity-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            border-top: 5px solid var(--primary);
+            transition: var(--transition);
+        }
+        .activity-card:hover {
+            transform: translateY(-5px);
+        }
+        .activity-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
     </style>
 </head>
 <body>
-    <header>...</header>
 
-    <div class="container">
+    <header>
+        <div class="nav-container">
+            <div class="logo-area">
+                <div class="logo-icon">🤲</div>
+                <div class="logo-text">
+                    <h2>جمعية رعاية اليتيم</h2>
+                    <span>العطاوية - تأسست 2012</span>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="activities.html" class="active">الأنشطة</a></li>
+                    <li><a href="benefit.html">طلب الاستفادة</a></li>
+                    <li><a href="sponsorship.html" class="nav-cta">كفالة مباشرة</a></li>
+                    <li><a href="volunteer.html">التطوع</a></li>
+                    <li><a href="contact.html">تواصل معنا</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
         <h1>أنشطة وبرامج الجمعية</h1>
-        <p>ننظم طيلة السنة عدة مبادرات إنسانية واجتماعية تستهدف الأيتام والأرامل:</p>
-        
-        <div class="grid">
-            <div class="card">
+        <p>مبادرات إنسانية مستمرة على مدار السنة لإدخال البهجة والسرور</p>
+    </div>
+
+    <div class="wrapper">
+        <div class="activities-grid">
+            <div class="activity-card">
                 <h3>🛒 القفة الشهرية</h3>
-                <p>توزيع مواد غذائية أساسية بشكل منتظم على الأسر المحتاجة والأرامل لتخفيف أعباء المعيشة.</p>
+                <p>توزيع مواد غذائية أساسية بشكل دوري ومنتظم على الأسر المحتاجة والأرامل لتوفير الأمن الغذائي وخفيف الأعباء المعيشية.</p>
             </div>
-            <div class="card">
+            <div class="activity-card">
                 <h3>🌙 قفة رمضان</h3>
-                <p>مبادرة سنوية مباركة لتوفير مؤونة شهر رمضان الفضيل للأسر المستفيدة.</p>
+                <p>مبادرة مباركة تنظم مع إشراقة الشهر الفضيل لتوفير المؤونة الرمضانية المتكاملة للأسر المتعففة حتى تتقاسم أجواء الشهر براحة.</p>
             </div>
-            <div class="card">
+            <div class="activity-card">
                 <h3>👕 كسوة العيد</h3>
-                <p>إدخال الفرحة على قلوب الأيتام بتوفير ملابس جديدة بمناسبة لعيدي الفطر والأضحى.</p>
+                <p>إدخال الفرحة والسرور لقلوب الأيتام عبر اقتناء ملابس جديدة ومتكاملة بمناسبة عيدي الفطر والأضحى المبارك.</p>
             </div>
-            <div class="card">
-                <h3>🐑 أضحية العيد</h3>
-                <p>توزيع أضاحي العيد على الأسر اليتيمة لتمكينهم من إحياء شعيرة العيد في أجواء عائلية دافئة.</p>
+            <div class="activity-card">
+                ### 🐑 أضحية العيد
+                <p>تمكين الأسر اليتيمة المعوزة من أداء شعيرة عيد الأضحى في أجواء عائلية دافئة ومميزة تعزز روح التضامن المجتمعي.</p>
             </div>
-            <div class="card">
+            <div class="activity-card" style="grid-column: 1 / -1; max-width: 600px; margin: 0 auto;">
                 <h3>📚 الدخول المدرسي</h3>
-                <p>توزيع المحافظ، الدفاتر، والأدوات المدرسية لدعم التمدرس ومحاربة الهدر المدرسي.</p>
+                <p>توفير المحافظ والدفاتر والأدوات المدرسية عالية الجودة لدعم تمدرس الأبناء والأيتام ومحاربة ظاهرة الهدر المدرسي.</p>
             </div>
         </div>
     </div>
 
-    <footer>...</footer>
+    <footer>
+        <p>جميع الحقوق محفوظة © الجمعية الخيرية لرعاية اليتيم بالعطاوية 2026</p>
+    </footer>
+
 </body>
 </html>
