@@ -17,7 +17,14 @@
                     <span>العطاوية - تأسست 2012</span>
                 </div>
             </div>
-            <nav>
+            
+            <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav id="navMenu">
                 <ul>
                     <li><a href="index.html" class="active">الرئيسية</a></li>
                     <li><a href="about.html">من نحن</a></li>
@@ -31,29 +38,29 @@
         </div>
     </header>
 
-    <section style="background: linear-gradient(rgba(27,67,50,0.85), rgba(27,67,50,0.85)), url('hero-bg.jpg') center/cover; color: white; text-align: center; padding: 120px 20px;">
+    <section style="background: linear-gradient(rgba(27,67,50,0.85), rgba(27,67,50,0.85)), url('hero-bg.jpg') center/cover; color: white; text-align: center; padding: 100px 20px;">
         <div style="max-width: 800px; margin: 0 auto;">
-            <h1 style="font-size: 3rem; margin-bottom: 20px; font-weight: 800;">كافل اليتيم كهاتين في الجنة</h1>
-            <p style="font-size: 1.25rem; margin-bottom: 35px; opacity: 0.9;">منذ سنة 2012، ونحن نعمل بأمانة وإخلاص لرعاية الأيتام والأرامل وإدخال الفرحة إلى قلوبهم في إقليم العطاوية.</p>
-            <div style="display: flex; gap: 15px; justify-content: center;">
-                <a href="sponsorship.html" class="btn-primary" style="background: var(--accent);">اكفل يتيماً الان</a>
-                <a href="benefit.html" class="btn-primary" style="background: transparent; border: 2px solid white;">طلب الاستفادة</a>
+            <h1 style="font-size: 2.5rem; margin-bottom: 20px; font-weight: 800;">كافل اليتيم كهاتين في الجنة</h1>
+            <p style="font-size: 1.1rem; margin-bottom: 30px; opacity: 0.9;">منذ سنة 2012، ونحن نعمل بأمانة وإخلاص لرعاية الأيتام والأرامل وإدخال الفرحة إلى قلوبهم في إقليم العطاوية.</p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="sponsorship.html" class="btn-primary" style="background: var(--accent); width: auto;">اكفل يتيماً الان</a>
+                <a href="benefit.html" class="btn-primary" style="background: transparent; border: 2px solid white; width: auto;">طلب الاستفادة</a>
             </div>
         </div>
     </section>
 
-    <div class="wrapper" style="margin-top: -50px;">
-        <div class="card-box" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; text-align: center;">
+    <div class="wrapper" style="margin-top: -30px;">
+        <div class="card-box" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center;">
             <div>
-                <h3 style="font-size: 2.5rem; color: var(--primary);">2012</h3>
+                <h3 style="font-size: 2.2rem; color: var(--primary);">2012</h3>
                 <p style="color: var(--text-muted);">سنة التأسيس والانطلاقة</p>
             </div>
             <div>
-                <h3 style="font-size: 2.5rem; color: var(--primary);">+500</h3>
+                <h3 style="font-size: 2.2rem; color: var(--primary);">+500</h3>
                 <p style="color: var(--text-muted);">أسرة وأرملة مستفيدة</p>
             </div>
             <div>
-                <h3 style="font-size: 2.5rem; color: var(--primary);">5</h3>
+                <h3 style="font-size: 2.2rem; color: var(--primary);">5</h3>
                 <p style="color: var(--text-muted);">برامج دعم سنوية كبرى</p>
             </div>
         </div>
@@ -63,5 +70,13 @@
         <p>جميع الحقوق محفوظة © الجمعية الخيرية لرعاية اليتيم بالعطاوية 2026</p>
     </footer>
 
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        menuToggle.addEventListener('click', () => { navMenu.classList.toggle('active'); });
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => { navMenu.classList.remove('active'); });
+        });
+    </script>
 </body>
 </html>
