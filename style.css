@@ -281,9 +281,9 @@ footer p {
         color: var(--white);
     }
 
-    /* تحويل الجداول المزدوجة إلى عمود واحد في صفحة تواصل معنا */
     .card-box[style*="grid-template-columns"] {
         grid-template-columns: 1fr !important;
         gap: 20px !important;
     }
-}
+    }
+        
