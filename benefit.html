@@ -2,6 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>طلب الاستفادة - الجمعية الخيرية لرعاية اليتيم</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -16,7 +17,14 @@
                     <span>العطاوية - تأسست 2012</span>
                 </div>
             </div>
-            <nav>
+            
+            <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav id="navMenu">
                 <ul>
                     <li><a href="index.html">الرئيسية</a></li>
                     <li><a href="about.html">من نحن</a></li>
@@ -77,7 +85,7 @@
                     <textarea rows="3" required placeholder="اكتب العنوان بوضوح داخل العطاوية أو النواحي"></textarea>
                 </div>
 
-                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 10px;">إرسال طلب الاستفادة للمراجعة</button>
+                <button type="submit" class="btn-primary" style="margin-top: 10px;">إرسال طلب الاستفادة للمراجعة</button>
             </form>
         </div>
     </div>
@@ -86,5 +94,13 @@
         <p>جميع الحقوق محفوظة © الجمعية الخيرية لرعاية اليتيم بالعطاوية 2026</p>
     </footer>
 
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        menuToggle.addEventListener('click', () => { navMenu.classList.toggle('active'); });
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => { navMenu.classList.remove('active'); });
+        });
+    </script>
 </body>
 </html>
