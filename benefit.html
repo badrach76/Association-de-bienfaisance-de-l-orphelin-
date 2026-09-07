@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>طلب الاستفادة</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>...</header>
+
+    <div class="container">
+        <h1>طلب الاستفادة (الأيتام والأرامل)</h1>
+        <p>المرجو ملء الاستمارة أدناه بالمعلومات الصحيحة ليتم دراسة الطلب من طرف إدارة الجمعية:</p>
+        
+        <form action="#" method="POST" style="margin-top: 20px;">
+            <div class="form-group">
+                <label>اسم الأرملة / المسؤول:</label>
+                <input type="text" required placeholder="الاسم الكامل">
+            </div>
+            <div class="form-group">
+                <label>رقم البطاقة الوطنية (CIN):</label>
+                <input type="text" required>
+            </div>
+            <div class="form-group">
+                <label>رقم الهاتف للتواصل:</label>
+                <input type="tel" required placeholder="06xxxxxxxx">
+            </div>
+            <div class="form-group">
+                <label>العنوان السكني الكامل:</label>
+                <textarea rows="2" required></textarea>
+            </div>
+            <div class="form-group">
+                <label>عدد الأيتام في القاصرين:</label>
+                <input type="number" min="1" required>
+            </div>
+            <div class="form-group">
+                <label>نوع الدعم المطلوب:</label>
+                <select>
+                    <option>القفة الشهرية</option>
+                    <option>قفة رمضان</option>
+                    <option>كسوة العيد</option>
+                    <option>أضحية العيد</option>
+                    <option>الدعم المدرسي</option>
+                    <option>كفالة شاملة</option>
+                </select>
+            </div>
+            <button type="submit" class="btn">إرسال الطلب</button>
+        </form>
+    </div>
+
+    <footer>...</footer>
+</body>
+</html>
