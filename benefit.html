@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>طلب الاستفادة - الجمعية الخيرية لرعاية اليتيم</title>
+    <title>طلب الاستفادة - الجمعية الخيرية لرعاية اليتيم بالعطاوية</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
         <div class="nav-container">
-            <div class="logo-area">
-                <div class="logo-icon">🤲</div>
+            <a href="index.html" class="logo-area">
+                <img src="yatim.png" alt="شعار الجمعية" class="logo-img">
                 <div class="logo-text">
                     <h2>جمعية رعاية اليتيم</h2>
                     <span>العطاوية - تأسست 2012</span>
                 </div>
-            </div>
+            </a>
             
             <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة">
                 <span></span>
@@ -68,16 +68,29 @@
                     </div>
                 </div>
 
+                <!-- خيارات متعددة لاختيار البرامج والدعم المطلوب -->
                 <div class="form-group">
-                    <label>نوع الدعم أو البرنامج المطلوب:</label>
-                    <select>
-                        <option>القفة الشهرية الغذائية</option>
-                        <option>قفة شهر رمضان</option>
-                        <option>كسوة العيد</option>
-                        <option>أضحية العيد</option>
-                        <option>الدعم المدرسي والمحافظ</option>
-                        <option>كفالة شاملة</option>
-                    </select>
+                    <label>نوع الدعم أو البرنامج المطلوب (يمكنك اختيار أكثر من برنامج):</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="support" value="القفة الشهرية"> القفة الشهرية الغذائية
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="support" value="قفة رمضان"> قفة شهر رمضان
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="support" value="كسوة العيد"> كسوة العيد
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="support" value="أضحية العيد"> أضحية العيد
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="support" value="الدخول المدرسي"> الدخول المدرسي والمحافظ
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="support" value="كفالة شاملة"> كفالة شاملة
+                        </label>
+                    </div>
                 </div>
 
                 <div class="form-group">
