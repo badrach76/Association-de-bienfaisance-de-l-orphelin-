@@ -7,23 +7,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <header>
         <div class="nav-container">
             <a href="index.html" class="logo-area">
                 <img src="yatim.png" alt="شعار الجمعية" class="logo-img">
                 <div class="logo-text">
-                    <h2>جمعية رعاية اليتيم</h2>
+                    <h2>الجمعية الخيرية لرعاية اليتيم</h2>
                     <span>العطاوية - تأسست 2012</span>
                 </div>
             </a>
-            
-            <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
+            <button class="menu-toggle" id="menuToggle" aria-label="القائمة"><span></span><span></span><span></span></button>
             <nav id="navMenu">
                 <ul>
                     <li><a href="index.html">الرئيسية</a></li>
@@ -48,7 +41,6 @@
             <h2 style="color: var(--primary); margin-bottom: 20px;">تاريخ التأسيس والمسيرة (سنة 2012)</h2>
             <p style="margin-bottom: 15px;">تأسست <strong>الجمعية الخيرية لرعاية اليتيم بالعطاوية</strong> سنة <strong>2012</strong> كإطار تضامني إنساني مستقل، يهدف إلى مد يد العون والمساعدة لفئة الأيتام والأرامل والطبقات الهشة، وتوفير بيئة حاضنة تضمن لهم الكرامة الإنسانية.</p>
             <p style="margin-bottom: 15px;">منذ انطلاقنا، وضعنا نصب أعيننا بناء جسور التواصل بين أهل الخير والمحتاجين، وتنظيم مبادرات ذات أثر عميق ومستدام داخل المجتمع المحلي.</p>
-            
             <h3 style="color: var(--primary); margin: 30px 0 15px 0;">رسالتنا وأهدافنا:</h3>
             <ul style="list-style-type: disc; padding-right: 20px; color: var(--text-dark); display: flex; flex-direction: column; gap: 10px;">
                 <li>رعاية الأيتام وتوفير الدعم المادي والنفسي والتربوي لهم.</li>
@@ -58,17 +50,11 @@
         </div>
     </div>
 
-    <footer>
-        <p>جميع الحقوق محفوظة © الجمعية الخيرية لرعاية اليتيم بالعطاوية 2026</p>
-    </footer>
-
+    <footer><p>جميع الحقوق محفوظة © الجمعية الخيرية لرعاية اليتيم بالعطاوية 2026</p></footer>
     <script>
-        const menuToggle = document.getElementById('menuToggle');
-        const navMenu = document.getElementById('navMenu');
-        menuToggle.addEventListener('click', () => { navMenu.classList.toggle('active'); });
-        document.querySelectorAll('nav ul li a').forEach(link => {
-            link.addEventListener('click', () => { navMenu.classList.remove('active'); });
-        });
+        const m = document.getElementById('menuToggle'), n = document.getElementById('navMenu');
+        m.addEventListener('click', () => n.classList.toggle('active'));
+        document.querySelectorAll('nav ul li a').forEach(l => l.addEventListener('click', () => n.classList.remove('active')));
     </script>
 </body>
 </html>
