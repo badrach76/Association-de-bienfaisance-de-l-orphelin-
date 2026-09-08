@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>طلب الاستفادة - الجمعية الخيرية لرعاية اليتيم بالعطاوية</title>
+    <title>كفالة مباشرة - الجمعية الخيرية لرعاية اليتيم بالعطاوية</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -29,8 +29,8 @@
                     <li><a href="index.html">الرئيسية</a></li>
                     <li><a href="about.html">من نحن</a></li>
                     <li><a href="activities.html">الأنشطة</a></li>
-                    <li><a href="benefit.html" class="active">طلب الاستفادة</a></li>
-                    <li><a href="sponsorship.html" class="nav-cta">كفالة مباشرة</a></li>
+                    <li><a href="benefit.html">طلب الاستفادة</a></li>
+                    <li><a href="sponsorship.html" class="nav-cta active">كفالة مباشرة</a></li>
                     <li><a href="volunteer.html">التطوع</a></li>
                     <li><a href="contact.html">تواصل معنا</a></li>
                 </ul>
@@ -38,9 +38,9 @@
         </div>
     </header>
 
-    <div class="page-header">
-        <h1>طلب الاستفادة للأيتام والأرامل</h1>
-        <p>المرجو ملء استمارة البحث الاجتماعي بدقة لكي تتمكن لجنة البحث من معالجة طلبكم</p>
+    <div class="page-header" style="background: linear-gradient(135deg, var(--accent), var(--accent-hover));">
+        <h1>كفالة يتيم مباشرة</h1>
+        <p>كن سنداً ورفيقاً ليتيم، واجعل لخيرك أثراً ممتداً وثابتاً بالعطاوية</p>
     </div>
 
     <div class="wrapper">
@@ -48,57 +48,30 @@
             <form action="#" method="POST">
                 <div class="form-grid">
                     <div class="form-group">
-                        <label>اسم الأرملة / المسؤول:</label>
-                        <input type="text" required placeholder="الاسم الكامل">
+                        <label>اسم الكافل / المحسن الكريم:</label>
+                        <input type="text" required placeholder="الاسم الكامل أو اسم المؤسسة">
                     </div>
                     <div class="form-group">
-                        <label>رقم البطاقة الوطنية (CIN):</label>
-                        <input type="text" required placeholder="مثال: AB123456">
-                    </div>
-                </div>
-
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label>رقم الهاتف النقال:</label>
+                        <label>رقم الهاتف أو الواتساب للتواصل:</label>
                         <input type="tel" required placeholder="06xxxxxxxx">
                     </div>
-                    <div class="form-group">
-                        <label>عدد الأيتام القاصرين:</label>
-                        <input type="number" min="1" required placeholder="عدد الأطفال">
-                    </div>
-                </div>
-
-                <!-- خيارات متعددة لاختيار البرامج والدعم المطلوب -->
-                <div class="form-group">
-                    <label>نوع الدعم أو البرنامج المطلوب (يمكنك اختيار أكثر من برنامج):</label>
-                    <div class="checkbox-group">
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="support" value="القفة الشهرية"> القفة الشهرية الغذائية
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="support" value="قفة رمضان"> قفة شهر رمضان
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="support" value="كسوة العيد"> كسوة العيد
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="support" value="أضحية العيد"> أضحية العيد
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="support" value="الدخول المدرسي"> الدخول المدرسي والمحافظ
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="support" value="كفالة شاملة"> كفالة شاملة
-                        </label>
-                    </div>
                 </div>
 
                 <div class="form-group">
-                    <label>العنوان السكني المفصل (الحي / الشارع):</label>
-                    <textarea rows="3" required placeholder="اكتب العنوان بوضوح داخل العطاوية أو النواحي"></textarea>
+                    <label>نوع الكفالة المرغوبة:</label>
+                    <select>
+                        <option>كفالة مادية شهرية منتظمة</option>
+                        <option>كفالة تعليمية (تغطية الأدوات واللوازم)</option>
+                        <option>كفالة موسمية (رمضان والعيدين)</option>
+                    </select>
                 </div>
 
-                <button type="submit" class="btn-primary" style="margin-top: 10px;">إرسال طلب الاستفادة للمراجعة</button>
+                <div class="form-group">
+                    <label>ملاحظات إضافية أو استفسارات:</label>
+                    <textarea rows="3" placeholder="أضف أي تفاصيل ترغب في توضيحها لتنسيق الكفالة"></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary" style="background: var(--accent);">تأكيد طلب الكفالة والتواصل معك</button>
             </form>
         </div>
     </div>
