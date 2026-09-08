@@ -3,27 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>كفالة مباشرة - الجمعية الخيرية لرعاية اليتيم</title>
+    <title>كفالة مباشرة - الجمعية الخيرية لرعاية اليتيم بالعطاوية</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <header>
         <div class="nav-container">
-            <div class="logo-area">
-                <div class="logo-icon">🤲</div>
+            <a href="index.html" class="logo-area">
+                <img src="yatim.png" alt="شعار الجمعية" class="logo-img">
                 <div class="logo-text">
-                    <h2>جمعية رعاية اليتيم</h2>
+                    <h2>الجمعية الخيرية لرعاية اليتيم</h2>
                     <span>العطاوية - تأسست 2012</span>
                 </div>
-            </div>
-            
-            <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="القائمة"><span></span><span></span><span></span></button>
             <nav id="navMenu">
                 <ul>
                     <li><a href="index.html">الرئيسية</a></li>
@@ -38,9 +31,9 @@
         </div>
     </header>
 
-    <div class="page-header" style="background: linear-gradient(135deg, var(--accent), var(--accent-hover));">
+    <div class="page-header" style="background: linear-gradient(135deg, #bc6c25, #d4a373);">
         <h1>كفالة يتيم مباشرة</h1>
-        <p>كن سنداً ورفيقاً ليتيم، واجعل لخيرك أثراً ممتداً وثابتاً</p>
+        <p>كن سنداً ورفيقاً ليتيم، واجعل لخيرك أثراً ممتداً وثابتاً بالعطاوية</p>
     </div>
 
     <div class="wrapper">
@@ -71,22 +64,16 @@
                     <textarea rows="3" placeholder="أضف أي تفاصيل ترغب في توضيحها لتنسيق الكفالة"></textarea>
                 </div>
 
-                <button type="submit" class="btn-primary" style="background: var(--accent);">تأكيد طلب الكفالة والتواصل معك</button>
+                <button type="submit" class="btn-primary" style="background: linear-gradient(135deg, var(--accent), var(--accent-hover));">تأكيد طلب الكفالة والتواصل معك</button>
             </form>
         </div>
     </div>
 
-    <footer>
-        <p>جميع الحقوق محفوظة © الجمعية الخيرية لرعاية اليتيم بالعطاوية 2026</p>
-    </footer>
-
+    <footer><p>جميع الحقوق محفوظة © الجمعية الخيرية لرعاية اليتيم بالعطاوية 2026</p></footer>
     <script>
-        const menuToggle = document.getElementById('menuToggle');
-        const navMenu = document.getElementById('navMenu');
-        menuToggle.addEventListener('click', () => { navMenu.classList.toggle('active'); });
-        document.querySelectorAll('nav ul li a').forEach(link => {
-            link.addEventListener('click', () => { navMenu.classList.remove('active'); });
-        });
+        const m = document.getElementById('menuToggle'), n = document.getElementById('navMenu');
+        m.addEventListener('click', () => n.classList.toggle('active'));
+        document.querySelectorAll('nav ul li a').forEach(l => l.addEventListener('click', () => n.classList.remove('active')));
     </script>
 </body>
 </html>
