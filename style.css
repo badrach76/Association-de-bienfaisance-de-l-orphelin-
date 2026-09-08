@@ -27,7 +27,6 @@ body {
     line-height: 1.8;
 }
 
-/* --- شريط التنقل المتجاوب (Responsive Navbar) --- */
 header {
     background: var(--white);
     box-shadow: 0 4px 20px rgba(0,0,0,0.05);
@@ -49,22 +48,18 @@ header {
     display: flex;
     align-items: center;
     gap: 12px;
+    text-decoration: none;
 }
 
-.logo-icon {
-    font-size: 1.5rem;
-    background: var(--primary);
-    color: var(--white);
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.logo-img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
     border-radius: 50%;
 }
 
 .logo-text h2 {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--primary);
     font-weight: 800;
 }
@@ -74,7 +69,6 @@ header {
     color: var(--text-muted);
 }
 
-/* القائمة العادية للشاشات الكبيرة */
 nav ul {
     list-style: none;
     display: flex;
@@ -106,7 +100,6 @@ nav ul li a:hover, nav ul li a.active {
     background: var(--accent-hover) !important;
 }
 
-/* زر القائمة المنسدلة للهاتف (Hamburger Icon) */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -128,7 +121,6 @@ nav ul li a:hover, nav ul li a.active {
     transition: var(--transition);
 }
 
-/* --- هيكل الصفحات والعناصر العامة --- */
 .page-header {
     background: linear-gradient(135deg, var(--primary), var(--primary-light));
     color: var(--white);
@@ -161,7 +153,6 @@ nav ul li a:hover, nav ul li a.active {
     margin-bottom: 20px;
 }
 
-/* --- النماذج المتجاوبة --- */
 .form-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -202,6 +193,33 @@ nav ul li a:hover, nav ul li a.active {
     box-shadow: 0 0 0 4px rgba(27, 67, 50, 0.1);
 }
 
+/* تنسيق الخيارات المتعددة (Checkboxes) لطلب الاستفادة */
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    background: #fafbfc;
+    padding: 15px;
+    border: 2px solid #e1e5eb;
+    border-radius: 8px;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.checkbox-item input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary);
+    cursor: pointer;
+}
+
 .btn-primary {
     background: var(--primary);
     color: var(--white);
@@ -223,7 +241,6 @@ nav ul li a:hover, nav ul li a.active {
     box-shadow: 0 6px 15px rgba(27,67,50,0.2);
 }
 
-/* --- الفوتر --- */
 footer {
     background: #111827;
     color: #9ca3af;
@@ -236,7 +253,6 @@ footer p {
     font-size: 0.9rem;
 }
 
-/* --- تفعيل الاستجابة للشاشات الصغيرة (Mobile Media Queries) --- */
 @media (max-width: 900px) {
     .menu-toggle {
         display: flex;
@@ -285,5 +301,4 @@ footer p {
         grid-template-columns: 1fr !important;
         gap: 20px !important;
     }
-    }
-        
+            }
