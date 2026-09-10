@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة الإشراف العام - الجمعية الخيرية لرعاية اليتيم بالعطاوية</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- مكتبة Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        /* شاشة تسجيل الدخول */
+        #loginOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(27, 67, 50, 0.95);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        .login-card {
+            background: #fff;
+            padding: 40px;
+            border-radius: var(--radius);
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        .login-card h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        /* محتوى اللوحة */
+        #adminContent {
+            display: none; /* مخفي حتى يتم إدخال كلمة المرور الصحيحة */
+        }
+        .admin-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        .tab-btn {
+            background: #e2e8f0;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--text-dark);
+        }
+        .tab-btn.active {
+            background: var(--primary);
+            color: #fff;
+        }
+        .data-table-container {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: right;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 0.95rem;
+        }
+        th {
+            background: var(--primary);
+            color: #fff;
+            font-weight: 700;
+        }
+        tr:hover {
+            background: #f8fafc;
+        }
+        .badge {
+            background: #d4a373;
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin: 2px;
+        }
+        .loading {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- نافذة تسجيل الدخول للإدارة -->
+    <div id="loginOverlay">
+        <div class="login-card">
+            <h2>دخول الإدارة</h2>
+            <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.9rem;">المرجو إدخال كلمة المرور الخاصة بأعضاء مكتب الجمعية</p>
+            <form id="loginForm">
+                <div class="form-group" style="text-align: right;">
+                    <input type="password" id="adminPassword" required placeholder="كلمة المرور السرية" style="text-align: center;">
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%;">دخول للوحة الإشراف</button>
+                <p id="loginError" style="color: red; margin-top: 15px; font-size: 0.85rem; display: none;">كلمة المرور غير صحيحة!</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- محتوى لوحة الإشراف (يظهر بعد كلمة المرور الصحيحة) -->
+    <div id="adminContent">
+        <header>
+            <div class="nav-container">
+                <a href="index.html" class="logo-area">
+                    <img src="yatim.png" alt="شعار الجمعية" class="logo-img">
+                    <div class="logo-text">
+                        <h2>لوحة الإشراف العام</h2>
+                        <span>الجمعية الخيرية لرعاية اليتيم بالعطاوية</span>
+                    </div>
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">العودة للموقع الرئيسي</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <div class="page-header" style="padding: 40px 20px;">
+            <h1>لوحة تتبع ومراجعة الطلبات</h1>
+            <p>إدارة بيانات المستفيدين، الكفلاء، المتطوعين، والرسائل الواردة</p>
+        </div>
+
+        <div class="wrapper">
+            <div class="admin-tabs">
+                <button class="tab-btn active" onclick="switchTab('benefits', this)">طلب الاستفادة</button>
+                <button class="tab-btn" onclick="switchTab('sponsorships', this)">الكفالات المباشرة</button>
+                <button class="tab-btn" onclick="switchTab('volunteers', this)">المتطوعون</button>
+                <button class="tab-btn" onclick="switchTab('messages', this)">رسائل التواصل</button>
+            </div>
+
+            <div class="card-box">
+                <div id="tableContent" class="loading">جاري تحميل البيانات من قاعدة البيانات...</div>
+            </div>
+        </div>
+
+        <footer><p>جميع الحقوق محفوظة © الجمعية الخيرية لرعاية اليتيم بالعطاوية 2026</p></footer>
+    </div>
+
+    <script>
+        // إعدادات كلمة المرور الخاصة بالإدارة (يمكنك تغيير "yatim2012" بالكلمة التي تناسبك)
+        const ADMIN_SECRET_CODE = 'yatim2012';
+
+        document.getElementById('loginForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const enteredPassword = document.getElementById('adminPassword').value;
+            
+            if (enteredPassword === ADMIN_SECRET_CODE) {
+                document.getElementById('loginOverlay').style.display = 'none';
+                document.getElementById('adminContent').style.display = 'block';
+                loadData('benefits'); // تحميل بيانات طلبات الاستفادة مباشرة عند الدخول
+            } else {
+                document.getElementById('loginError').style.display = 'block';
+            }
+        });
+
+        // إعدادات الاتصال بـ Supabase (تأكد من مطابقتها لبيانات مشروعك)
+        const SUPABASE_URL = 'https://YOUR_PROJECT_REF.supabase.co';
+        const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        async function switchTab(type, btn) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            loadData(type);
+        }
+
+        async function loadData(type) {
+            const container = document.getElementById('tableContent');
+            container.innerHTML = '<div class="loading">جاري جلب البيانات...</div>';
+
+            let tableName = '';
+            if (type === 'benefits') tableName = 'benefit_requests';
+            else if (type === 'sponsorships') tableName = 'sponsorships';
+            else if (type === 'volunteers') tableName = 'volunteers';
+            else if (type === 'messages') tableName = 'messages';
+
+            const { data, error } = await supabaseClient
+                .from(tableName)
+                .select('*')
+                .order('created_at', { ascending: false });
+
+            if (error) {
+                container.innerHTML = `<p style="color: red; text-align:center;">حدث خطأ أثناء جلب البيانات: ${error.message}</p>`;
+                return;
+            }
+
+            if (!data || data.length === 0) {
+                container.innerHTML = `<p style="text-align:center; padding: 20px; color: var(--text-muted);">لا توجد أي طلبات مسجلة حتى الآن في هذا القسم.</p>`;
+                return;
+            }
+
+            let html = '<div class="data-table-container"><table>';
+            
+            if (type === 'benefits') {
+                html += `<thead><tr><th>اسم المسؤول / الأرملة</th><th>رقم البطاقة</th><th>الهاتف</th><th>عدد الأيتام</th><th>البرامج المطلوبة</th><th>العنوان</th><th>تاريخ الطلب</th></tr></thead><tbody>`;
+                data.forEach(row => {
+                    let badges = row.support_types ? row.support_types.map(s => `<span class="badge">${s}</span>`).join(' ') : '-';
+                    html += `<tr>
+                        <td>${row.guardian_name}</td>
+                        <td>${row.cin}</td>
+                        <td>${row.phone}</td>
+                        <td>${row.orphans_count}</td>
+                        <td>${badges}</td>
+                        <td>${row.address}</td>
+                        <td>${new Date(row.created_at).toLocaleDateString('ar-MA')}</td>
+                    </tr>`;
+                });
+            } else if (type === 'sponsorships') {
+                html += `<thead><tr><th>اسم الكافل / المحسن</th><th>الهاتف</th><th>نوع الكفالة</th><th>ملاحظات</th><th>تاريخ الطلب</th></tr></thead><tbody>`;
+                data.forEach(row => {
+                    html += `<tr>
+                        <td>${row.donor_name}</td>
+                        <td>${row.phone}</td>
+                        <td>${row.sponsorship_type}</td>
+                        <td>${row.notes || '-'}</td>
+                        <td>${new Date(row.created_at).toLocaleDateString('ar-MA')}</td>
+                    </tr>`;
+                });
+            } else if (type === 'volunteers') {
+                html += `<thead><tr><th>الاسم الكامل</th><th>الهاتف</th><th>المستوى / المهنة</th><th>مجال التطوع</th><th>تاريخ التسجيل</th></tr></thead><tbody>`;
+                data.forEach(row => {
+                    html += `<tr>
+                        <td>${row.full_name}</td>
+                        <td>${row.phone}</td>
+                        <td>${row.profession || '-'}</td>
+                        <td>${row.field}</td>
+                        <td>${new Date(row.created_at).toLocaleDateString('ar-MA')}</td>
+                    </tr>`;
+                });
+            } else if (type === 'messages') {
+                html += `<thead><tr><th>اسم المرسل</th><th>معلومات الاتصال</th><th>نص الرسالة</th><th>تاريخ الإرسال</th></tr></thead><tbody>`;
+                data.forEach(row => {
+                    html += `<tr>
+                        <td>${row.sender_name}</td>
+                        <td>${row.contact_info}</td>
+                        <td>${row.message}</td>
+                        <td>${new Date(row.created_at).toLocaleDateString('ar-MA')}</td>
+                    </tr>`;
+                });
+            }
+
+            html += '</tbody></table></div>';
+            container.innerHTML = html;
+        }
+    </script>
+</body>
+</html>
